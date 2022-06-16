@@ -1,11 +1,8 @@
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
-import {Div} from './style'
+import {Div} from './globalStyle'
 
 ReactDOM.render(
   <Div>Ola mundo</Div>, 
   document.getElementById('root')
 
 )
-
-reportWebVitals();
