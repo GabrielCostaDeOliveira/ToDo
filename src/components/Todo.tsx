@@ -1,6 +1,7 @@
 import { allowedNodeEnvironmentFlags } from "process";
 import React from "react";
-import Todoform from "./todoform";
+import Todoform from "./Todoform";
+import TodoList from "./TodoList"
 
   interface todos{
       id:number,
@@ -15,7 +16,7 @@ import Todoform from "./todoform";
   }
 
 
-class TodoList extends React.Component<Props, Stage> {
+class Todo extends React.Component<Props, Stage> {
     constructor(props: any){
         super(props)
 
@@ -30,6 +31,12 @@ class TodoList extends React.Component<Props, Stage> {
         console.log(this.state.todos)
        
   }
+
+    removeTodo(id : number){
+        this.setState((state, props) => ({
+            todos : this.state.todos.filter( (e) => e.id !== id)
+          }));
+    }
     
 
     render(){
@@ -37,6 +44,7 @@ class TodoList extends React.Component<Props, Stage> {
             <div>
                 <h1>Quais são os seu planos para hoje?</h1>
                 <Todoform onSubmit={this.addTodo.bind(this)}/>
+                <TodoList  todos={this.state.todos}  handleClikRemoveIcon={this.removeTodo.bind(this)}/>
             </div>
         )
         
@@ -44,4 +52,4 @@ class TodoList extends React.Component<Props, Stage> {
 
 }
 
-export default TodoList;
+export default Todo;
