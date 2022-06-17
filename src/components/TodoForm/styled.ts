@@ -16,6 +16,14 @@ export const Form = styled.form`
             rgba(93, 12, 255, 1) 0%,
             rgba(155, 0, 250, 1) 100%
         );
+
+        &:hover{
+            background: linear-gradient(
+                90deg,
+                rgba(93, 12, 255, .7) 0%,
+                rgba(155, 0, 250, .7) 100%
+            );
+        }
         color: #fff;
         text-transform: capitalize;
     }
