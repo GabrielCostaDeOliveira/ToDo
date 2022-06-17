@@ -1,11 +1,14 @@
 import React from "react";
+import {Form} from "./styled"
 
   interface States{
-      value : string;
+      value : string
   }
 
   interface Props{
-      onSubmit : Function;
+      submit : Function
+      type : string
+      value : string
   }
 
 class TodoForm extends React.Component<Props, States> {
@@ -14,17 +17,22 @@ class TodoForm extends React.Component<Props, States> {
 
   constructor(props : Props){
       super(props)
-      this.state = {value : ""}
+      this.state = {value : this.props.value}
       this.id = 0
   }
 
     handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault()
 
-        this.props.onSubmit({
-            id : Math.floor(this.id++), 
-            text : this.state.value
-        });
+        if (this.props.type == 'i')
+            this.props.submit({
+                id : Math.floor(this.id++), 
+                text : this.state.value
+            });
+        else 
+            this.props.submit( 
+                this.state.value
+            );
 
         this.setState({value: ""})
 
@@ -36,7 +44,7 @@ class TodoForm extends React.Component<Props, States> {
 
     render(){
         return (
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <Form onSubmit={this.handleSubmit.bind(this)}>
             <input 
                 type="text" 
                 name="text"
@@ -46,7 +54,7 @@ class TodoForm extends React.Component<Props, States> {
 
             />
             <button>ok</button>
-        </form>
+        </Form>
         )
     }
 

@@ -2,6 +2,7 @@ import { allowedNodeEnvironmentFlags } from "process";
 import React from "react";
 import TodoForm from "../TodoForm";
 import TodoList from "../TodoList";
+import {DivApp} from "./styled"
 
   interface todos{
       id:number,
@@ -52,11 +53,11 @@ class Todo extends React.Component<Props, Stage> {
 
     render(){
         return (
-            <div>
+            <DivApp>
                 <h1>Quais são os seu planos para hoje?</h1>
-                <TodoForm onSubmit={this.addTodo.bind(this)}/>
+                <TodoForm submit={this.addTodo.bind(this)} type={"i"} value={""}/>
                 <TodoList  todos={this.state.todos}  removeTodo={this.removeTodo.bind(this)}  updateTodo={this.updateTodo.bind(this) }/>
-            </div>
+            </DivApp>
         )
         
     }
