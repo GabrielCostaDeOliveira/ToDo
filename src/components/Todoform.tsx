@@ -9,16 +9,20 @@ import React from "react";
   }
 
 class Todoform extends React.Component<Props, States> {
+
+    id: number;
+
   constructor(props : Props){
       super(props)
       this.state = {value : ""}
+      this.id = 0
   }
 
     handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault()
 
         this.props.onSubmit({
-            id : Math.floor(Math.random() * 10000), 
+            id : Math.floor(this.id++), 
             text : this.state.value
         });
 
@@ -26,7 +30,7 @@ class Todoform extends React.Component<Props, States> {
 
     }
 
-    handleChange(event:any) {
+    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         this.setState({value: event.target.value});
     }
 

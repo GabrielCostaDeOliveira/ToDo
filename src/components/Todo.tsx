@@ -37,6 +37,17 @@ class Todo extends React.Component<Props, Stage> {
             todos : this.state.todos.filter( (e) => e.id !== id)
           }));
     }
+
+    updateTodo(newTodo : todos){
+        if ( !newTodo.text || /^\s*$/.test(newTodo.text) )
+            return;
+
+        this.setState((state, props) => ({ 
+            todos : this.state.todos.map( (e) => (e.id === newTodo.id  ?  newTodo : e)) 
+        }));
+
+
+    }
     
 
     render(){
@@ -44,7 +55,7 @@ class Todo extends React.Component<Props, Stage> {
             <div>
                 <h1>Quais são os seu planos para hoje?</h1>
                 <Todoform onSubmit={this.addTodo.bind(this)}/>
-                <TodoList  todos={this.state.todos}  handleClikRemoveIcon={this.removeTodo.bind(this)}/>
+                <TodoList  todos={this.state.todos}  removeTodo={this.removeTodo.bind(this)}  updateTodo={this.updateTodo.bind(this) }/>
             </div>
         )
         
