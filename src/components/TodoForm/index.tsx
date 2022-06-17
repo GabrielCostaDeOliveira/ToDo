@@ -8,7 +8,7 @@ import React from "react";
       onSubmit : Function;
   }
 
-class Todoform extends React.Component<Props, States> {
+class TodoForm extends React.Component<Props, States> {
 
     id: number;
 
@@ -52,4 +52,4 @@ class Todoform extends React.Component<Props, States> {
 
 }
 
-export default Todoform;
+export default TodoForm;

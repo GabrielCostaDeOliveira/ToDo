@@ -1,7 +1,7 @@
 import { allowedNodeEnvironmentFlags } from "process";
 import React from "react";
-import Todoform from "./Todoform";
-import TodoList from "./TodoList"
+import TodoForm from "../TodoForm";
+import TodoList from "../TodoList";
 
   interface todos{
       id:number,
@@ -54,7 +54,7 @@ class Todo extends React.Component<Props, Stage> {
         return (
             <div>
                 <h1>Quais são os seu planos para hoje?</h1>
-                <Todoform onSubmit={this.addTodo.bind(this)}/>
+                <TodoForm onSubmit={this.addTodo.bind(this)}/>
                 <TodoList  todos={this.state.todos}  removeTodo={this.removeTodo.bind(this)}  updateTodo={this.updateTodo.bind(this) }/>
             </div>
         )
