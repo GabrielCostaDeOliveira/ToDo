@@ -32,11 +32,15 @@ export const Form = styled.form`
         
         padding: 14px 32px 14px 16px;
         border-radius: 4px 0 0 4px;
-        border: 2px solid #5d0cff;
+        border: 2px solid rgba(93, 12, 255, 1);
         outline: none;
         width: 320px;
         background: transparent;
         color: #fff;
+
+        &:hover{
+            border: 2px solid rgba(93, 12, 255, 0.7);
+        }
 
     }
 
