@@ -1,8 +1,9 @@
 import ReactDOM from 'react-dom';
-import {Div} from './globalStyle'
+import App from './App'
+
 
 ReactDOM.render(
-  <Div>Ola mundo</Div>, 
+  <App />,
   document.getElementById('root')
 
 )
